@@ -1,0 +1,44 @@
+{
+  "name": "css-in-js-training",
+  "description": "CSS in JS Training",
+  "version": "1.0.0",
+  "author": "Dustin Schau <dustinschau@gmail.com> (https://dustinschau.com)",
+  "dependencies": {
+    "emotion": "~8.0.12",
+    "emotion-server": "~8.0.12",
+    "gatsby": "^1.9.158",
+    "gatsby-link": "^1.6.34",
+    "gatsby-plugin-emotion": "~1.1.11",
+    "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-plugin-react-next": "~1.0.8",
+    "gatsby-plugin-typography": "~1.7.13",
+    "gatsby-source-filesystem": "~1.5.16",
+    "gatsby-transformer-remark": "~1.7.30",
+    "normalize.css": "~7.0.0",
+    "react-emotion": "~8.0.12",
+    "react-helmet": "^5.2.0",
+    "typography": "~0.16.6",
+    "typography-theme-grand-view": "~0.15.10"
+  },
+  "keywords": [
+    "gatsby",
+    "css in js",
+    "styled-components",
+    "glamorous",
+    "emotion",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "start": "npm run develop",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "limax": "~1.6.0",
+    "prettier": "^1.10.2"
+  }
+}
