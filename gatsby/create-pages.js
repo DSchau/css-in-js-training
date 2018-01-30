@@ -1,9 +1,16 @@
 const path = require('path');
 
 module.exports = function createPages({ boundActionCreators, graphql }) {
-  const { createPage } = boundActionCreators;
+  const { createPage, createRedirect } = boundActionCreators;
 
   const contentTemplate = path.resolve('src/templates/content.js');
+
+  createRedirect({
+    fromPath: '/',
+    isPermanant: false,
+    redirectInBrowser: true,
+    toPath: '/proposal'
+  });
 
   return graphql(`
     {
