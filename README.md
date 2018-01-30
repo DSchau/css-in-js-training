@@ -1,13 +1,7 @@
-# gatsby-starter-default
-The default Gatsby starter
+# css-in-js-training
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+The statically generated home of [css-in-js-training.dustinschau.com][cssinjstraining]
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-example-site
-```
+Currently not a lot to see here, but **stay tuned!**
 
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+[cssinjstraining]: https://css-in-js-training.dustinschau.com
