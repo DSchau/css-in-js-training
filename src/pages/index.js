@@ -10,7 +10,7 @@ const Container = styled.div({
 const IndexPage = () => (
   <div>
     <h1>Hello! Not much to see here yet, but stay tuned&hellip;</h1>
-    <Link to="/course-outline/">Prelim. Course Outline</Link>
+    <Link to="/proposal/">Proposal</Link>
   </div>
 )
 
