@@ -16,6 +16,8 @@ This course is intended to alleviate any misinformation around the concept of CS
 
 The course will begin by first defining what CSS in JS _is_ and what it _is not_  and will then shift into the drawbacks of CSS. From this foundational perspective, we can then construct the argument for why CSS in JS exists and what problems it’s intending to solve. From this point forward, we’ll deep dive into how it solves these problems and specifically some “real world” examples of some solutions to common problems that CSS in JS can solve cleanly and clearly. We’ll finish with advanced features like server side rendering, theming support, and even some brief demonstrations of native mobile CSS in JS (e.g. React Native).
 
+The course is intended to be consumed in "bite size" videos, each of which is approximately 5 minutes or so. In its entirety, the course should contain about a max of about 1.5 hours of pure content.
+
 ## Who is the learner? What do they know? What don’t they know?
 
 The “learner” for this course is someone who wants to grow in their knowledge of alternative CSS techniques (like CSS in JS) I’d like to think of the ideal learner as someone in one of the following categories:
@@ -35,6 +37,10 @@ Someone who has developed a great deal of applications, and has likely used tool
 **Requirements**
 
 - Basic familiarity with CSS
+  - Rules, selectors, and class names
+  - Media queries
+  - Pseudo styles (`:hover`, `:focus`, etc.)
+  - Flexbox
 - Basic familiarity with React
   - CSS in JS does not necessarily _require_ React, but to really teach the most interesting libraries and concepts, most of that is happening in the React ecosystem
 - Basic understanding of ES2015+, specifically:
@@ -85,62 +91,50 @@ This puts us in a great competitive advantage, as we can deliver something to th
 
 Collectively, I’d like around two months to get the course content put together, and I’d like to break it up into about two week chunks and possibly have milestones and status updates during these two week cycles.
 
-### Week 1
+### Weeks 1 - 2
 - Formalization of course content and getting familiar with video recording style
-- Rough draft of first section (drawbacks of CSS in JS)
+- First section recording(s)
+- This section is intentionally light, as to get more familiar with video recording, content, stylistic/tone concerns, etc.
 
-### Week 2
+### Weeks 3 - 4
 - Why CSS in JS Matters section
 - Planning and additional work re: the product we’re building (e.g. formalization on design, functionality, etc.)
 
-### Week 3
+### Weeks 5 - 6
 - Record the lab content videos (authoring with CSS in JS)
 - Advanced CSS in JS section
 
-### Week 4
-- Wrap up and any further tweaks on existing video content or final changes
+### Weeks 7 - 8
+- Wrap up and any further tweaks on existing video content and/or final changes
 
 ## Table of Contents
 
 1. Introduction of CSS in JS
-    - What CSS in JS _is_
-    - What CSS in JS is _not_
-      - Specifically, how CSS in JS is not “inline styles”
-2. The drawbacks of CSS
-    - Global conflict
-    - Scaling concerns
-    - Dead code elimination
-    - Sharing constants
-3. Why CSS in JS Matters
-    - Illustration of how it alleviates global conflict and global variables
-    - How it solves scaling concerns
-    - How it solves dead code elimination
-    - How it solves sharing constants
-    - A more powerful CSS
-    - Real stylesheets
-    - … and more!
-        - Prop injection
-        - Isolation of both style and view code (componentization)
-        - Easy theming support
-4. Authoring with CSS in JS (styled-components + React)
+    - What CSS in JS is
+    - What CSS in JS is not
+        - Specifically, how CSS in JS is not “inline styles”
+1. Authoring with CSS in JS (styled-components + React)
     - Basic set up (CodeSandbox and/or CSS in JS Playground)
     - Your first styled component
     - Pseudo styles, media queries, and hover effects, oh my!
     - Injecting Props
     - Inheritance
     - Animation
-    - Extensibility (e.g. customizing styled components)
-5. Advanced CSS in JS
+    - Extensibility (e.g. allowing components to be customized)
+1. Advanced CSS in JS
     - Theming
     - Server side and/or static rendering
     - Global injection
     - When does it _not_ make sense to use CSS in JS libraries?
-    - Roll your own CSS in JS (e.g. CSS in JS in Vue or Angular)
-        - This section will discuss how to use some of these libraries outside of React and in other frameworks
-6. Wrap Up
+1. Roll your own CSS in JS (e.g. CSS in JS in Vue or Angular)
+    - CSS Modules
+    - Automated tooling
+        - Scoped styles (a la Vue scoped styles, Angular scoped styles, etc.)
+    - Libraries that do not require React (JSS, Fela, inline styles, etc.)
+1. Wrap Up
     - Other libraries (e.g. Glamorous, Emotion, etc.)
+        - This will sort of necessarily have a React focus since we've already covered other libraries
     - Drawbacks of CSS in JS
-    - Recommended next steps
+    - Recommended next steps/call to action
 
 [cssinjsplayground]: https://css-in-js-playground.com
-
