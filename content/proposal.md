@@ -14,9 +14,9 @@ As far as my qualifications as a teacher, I haven’t as of yet done any video t
 
 This course is intended to alleviate any misinformation around the concept of CSS in JS, while also laying bare the foundation upon which CSS in JS was laid, why it matters, and the incredible things these techniques can do for an application.
 
-The course will begin by first defining what CSS in JS _is_ and what it _is not_  and will then shift into the drawbacks of CSS. From this foundational perspective, we can then construct the argument for why CSS in JS exists and what problems it’s intending to solve. From this point forward, we’ll deep dive into how it solves these problems and specifically some “real world” examples of some solutions to common problems that CSS in JS can solve cleanly and clearly. We’ll finish with advanced features like server side rendering, theming support, and even some brief demonstrations of native mobile CSS in JS (e.g. React Native).
+The course will begin by first defining what CSS in JS _is_ and what it _is not_. From this foundational perspective, we can then construct the argument for why CSS in JS exists and what problems it’s intending to solve. From this point forward, we’ll deep dive into how it solves these problems and specifically some “real world” examples of some solutions to common problems that CSS in JS can solve cleanly and clearly. We’ll finish with advanced features like server side rendering, theming support, and even some brief demonstrations of native CSS in JS (e.g. React Native).
 
-The course is intended to be consumed in "bite size" videos, each of which is approximately 5 minutes or so. In its entirety, the course should contain about a max of about 1.5 hours of pure content.
+The course is intended to be consumed in "bite size" videos, each of which is approximately 5 minutes. In its entirety, the course should contain approximately 3 - 4 hours of content.
 
 ## Who is the learner? What do they know? What don’t they know?
 
@@ -43,6 +43,7 @@ Someone who has developed a great deal of applications, and has likely used tool
   - Flexbox
 - Basic familiarity with React
   - CSS in JS does not necessarily _require_ React, but to really teach the most interesting libraries and concepts, most of that is happening in the React ecosystem
+  - Through this training, we will primarily be using the library styled-components, which is a product of, and primarily used in, the React ecosystem
 - Basic understanding of ES2015+, specifically:
   - Template literals
   - Arrow functions
@@ -65,13 +66,13 @@ High level, the course will start as more informational (i.e. drawbacks of CSS, 
 - Common libraries for instrumenting CSS in JS
   - As well as libraries that don’t require React
 - Best practices for authoring with CSS in JS
-- The drawbacks of CSS in JS
+- The drawbacks of CSS in JS, and when it might make sense to use other techniques
 
 ## The project
 
-Our project is quite simple, but we are simply going to iteratively build up a form (like one seen on [css-in-js-playground.com][cssinjsplayground]), but one that is part of a larger application. Through this, we can build up the foundational concepts of CSS in JS (e.g. style encapsulation, props injection, theming, etc.) while also illustrating familiar concepts like media queries, hover styles, etc.
+Our project is quite simple, but we are simply going to iteratively build up a form--or perhaps something more interesting--(like one seen on [css-in-js-playground.com][cssinjsplayground]), but definitely something that will be real-world applicable _and_ demonstrate the benefits of CSS in JS. Through this, we can build up the foundational concepts of CSS in JS (e.g. style encapsulation, props injection, theming, etc.) while also illustrating familiar concepts like media queries, hover styles, etc.
 
-The “labs” will be utilizing some type of interactive development environment, either an augmented version of [css-in-js-playground.com][cssinjsplayground] tailored to teaching, or perhaps something like CodeSandbox or something in-house. We will first introduce the value of CSS in JS, and then after this introduction and discussion of its value _then_ we will start on the project.
+The “labs” will be utilizing some type of interactive development environment, either an augmented version of [css-in-js-playground.com][cssinjsplayground] tailored to teaching, or perhaps something like CodeSandbox or something in-house. We will first introduce the CSS in JS--what it is, and is _not_, and then immediately get to building smoething!
 
 ## What can the learner do with these skills
 
@@ -89,23 +90,35 @@ This puts us in a great competitive advantage, as we can deliver something to th
 
 ## Schedule
 
-Collectively, I’d like around two months to get the course content put together, and I’d like to break it up into about two week chunks and possibly have milestones and status updates during these two week cycles.
+Collectively, I’d like around four to six months to get the course content put together, and I’d like to break it up into about two week chunks and possibly have milestones and status updates during these two week cycles.
 
-### Weeks 1 - 2
+### First Month
+
 - Formalization of course content and getting familiar with video recording style
-- First section recording(s)
+- Planning and additional work re: the product we’re building (e.g. formalization on design, functionality, etc.)
+- Further refinement of course content
+  - By the end of this month, I'd have to at least have a fairly firm idea of each 5 minute video I'll be recording
 - This section is intentionally light, as to get more familiar with video recording, content, stylistic/tone concerns, etc.
 
-### Weeks 3 - 4
-- Why CSS in JS Matters section
-- Planning and additional work re: the product we’re building (e.g. formalization on design, functionality, etc.)
+### Second Month
 
-### Weeks 5 - 6
-- Record the lab content videos (authoring with CSS in JS)
-- Advanced CSS in JS section
+- Writing the scripts/agenda for the first few sections
+- Starting to record at least the first few sections, and getting more familiar with video training
 
-### Weeks 7 - 8
-- Wrap up and any further tweaks on existing video content and/or final changes
+### Third Month
+
+- Writing scripts/agenda for next 1-2 sections
+- Authoring with CSS in JS video recording
+- Advanced CSS in JS video recording
+
+### Fourth Month
+
+- Writing scripts/agenda for last few sections
+- Recording and polishing videos for last few sections
+
+### Fifth and Sixth Months (as needed)
+
+If needed, I'll use the last 1-2 months to polish any content, or go back and tweak stuff that may have changed or has since been improved. Perhaps some training(s) can be revisited/redone upon second glance, and some extra padded time to revisit and _perfect_ will be useful here.
 
 ## Table of Contents
 
@@ -121,6 +134,7 @@ Collectively, I’d like around two months to get the course content put togethe
     - Inheritance
     - Animation
     - Extensibility (e.g. allowing components to be customized)
+    - Using CSS in JS with existing libraries (e.g. Bootstrap, Foundation, etc.)
 1. Advanced CSS in JS
     - Theming
     - Server side and/or static rendering

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'CSS in JS Training',
+    title: 'CSS in JS with styled-components and React',
   },
   plugins: [
     'gatsby-plugin-react-next',

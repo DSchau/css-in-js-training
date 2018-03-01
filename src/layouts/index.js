@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from 'react-emotion';
 
@@ -18,24 +17,28 @@ const Content = styled.main({
   paddingTop: 0,
 });
 
-const TemplateWrapper = ({ children }) => (
+export default ({ children, data }) => (
   <Container>
     <Helmet
-      title="CSS in JS Training"
+      title="CSS in JS with styled-components and React"
       meta={[
         { name: 'description', content: 'CSS in JS Training by Dustin Schau' },
         { name: 'keywords', content: 'css in js, training, styled-components, glamorous, react' },
       ]}
     />
-    <Header />
+    <Header title={data.site.siteMetadata.title} />
     <Content>
       {children()}
     </Content>
   </Container>
 )
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
-}
-
-export default TemplateWrapper
+export const pageQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

@@ -7,7 +7,7 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
 
   createRedirect({
     fromPath: '/',
-    isPermanant: false,
+    isPermanant: true,
     redirectInBrowser: true,
     toPath: '/proposal'
   });
