@@ -120,7 +120,7 @@ Collectively, I’d like around four to six months to get the course content put
 
 If needed, I'll use the last 1-2 months to polish any content, or go back and tweak stuff that may have changed or has since been improved. Perhaps some training(s) can be revisited/redone upon second glance, and some extra padded time to revisit and _perfect_ will be useful here.
 
-## Table of Contents
+## Course Content
 
 1. Introduction of CSS in JS
     - What CSS in JS is

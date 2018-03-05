@@ -19,6 +19,14 @@ module.exports = {
         plugins: [
           'gatsby-remark-responsive-iframe',
           'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-toc',
+            options: {
+              include: [
+                'content/proposal.md'
+              ]
+            }
+          },
           'gatsby-remark-smartypants'
         ]
       }
