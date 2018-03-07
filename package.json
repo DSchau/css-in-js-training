@@ -42,7 +42,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "gatsby-remark-toc": "~1.0.0",
     "limax": "~1.6.0",
     "prettier": "^1.10.2"
   }
