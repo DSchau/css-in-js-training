@@ -1,7 +1,7 @@
-import { injectGlobal } from 'emotion';
+import { injectGlobal } from 'styled-components';
 
 injectGlobal`
   body {
-    background-color: #fafafa;
+    background-color: #f2ffff;
   }
 `;

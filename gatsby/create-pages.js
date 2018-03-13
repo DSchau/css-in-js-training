@@ -1,20 +1,24 @@
 const path = require('path');
 
 module.exports = function createPages({ boundActionCreators, graphql }) {
-  const { createPage, createRedirect } = boundActionCreators;
+  const { createPage } = boundActionCreators;
 
   const contentTemplate = path.resolve('src/templates/content.js');
-
-  createRedirect({
-    fromPath: '/',
-    isPermanant: true,
-    redirectInBrowser: true,
-    toPath: '/proposal'
-  });
+  const lessonTemplate = path.resolve('src/templates/lesson.js');
 
   return graphql(`
     {
       content:allMarkdownRemark(filter:{fields:{type:{eq:"content"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      lessons:allMarkdownRemark(filter:{fields:{type:{eq:"lesson"}}}) {
         edges {
           node {
             id
@@ -33,6 +37,7 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
 
       const {
         content,
+        lessons
       } = result.data;
 
       content.edges.forEach(({ node }) => {
@@ -40,6 +45,17 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
         createPage({
           path: `/${slug}`,
           component: contentTemplate,
+          context: {
+            slug
+          }
+        });
+      });
+
+      lessons.edges.forEach(({ node }) => {
+        const { slug } = node.fields;
+        createPage({
+          path: `/${slug}`,
+          component: lessonTemplate,
           context: {
             slug
           }
