@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Lessons } from '../components';
+import { Lessons } from '../components/';
 
 const Container = styled.div``;
 

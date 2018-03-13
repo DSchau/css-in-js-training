@@ -2,9 +2,9 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
-import { Footer, Header } from '../components';
+import { Footer, Header } from '../components/';
 
-import '../style';
+import '../style/global';
 import 'normalize.css';
 
 const Container = styled.div``;
