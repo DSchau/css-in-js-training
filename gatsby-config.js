@@ -1,3 +1,25 @@
+const fs = require('fs');
+const path = require('path');
+
+const base = path.resolve('content/lessons');
+
+const content = fs.readdirSync(base)
+  .filter(fileOrFolder => fs.statSync(path.join(base, fileOrFolder)).isDirectory())
+  .map(lesson => ({
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'lessons',
+      path: path.join(base, lesson)
+    }
+  }))
+  .concat({
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: `content`,
+      path: `${__dirname}/content`,
+    }
+  });
+
 module.exports = {
   siteMetadata: {
     title: 'CSS in JS with styled-components and React',
@@ -5,7 +27,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-remove-trailing-slashes',
     {
       resolve: 'gatsby-plugin-typography',
@@ -22,13 +44,6 @@ module.exports = {
           'gatsby-remark-smartypants'
         ]
       }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: `content`,
-        path: `${__dirname}/content`,
-      }
     }
-  ],
+  ].concat(content),
 };
