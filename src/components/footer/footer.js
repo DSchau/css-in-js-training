@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import GatsbyLink from 'gatsby-link';
 import CodeIcon from 'react-icons/lib/fa/code';
 import GithubIcon from 'react-icons/lib/fa/github';
 
@@ -9,6 +8,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: #eb7f00;
+
+  padding: 0 0.25rem;
 `;
 
 const Message = styled.p`
@@ -24,7 +25,7 @@ const Message = styled.p`
   text-align: center;
 `;
 
-const Link = styled(GatsbyLink)`
+const Link = styled.a`
   text-decoration: underline;
   text-decoration-skip: ink;
 
@@ -38,7 +39,7 @@ const Link = styled(GatsbyLink)`
 `;
 
 const Code = styled(CodeIcon)`
-  color: #acf0f2;
+  color: #225378;
 
   font-size: 18px;
 
@@ -48,7 +49,7 @@ const Code = styled(CodeIcon)`
   top: -1px;
 `;
 
-const GithubLink = styled(GatsbyLink)`
+const GithubLink = styled.a`
   text-decoration: none;
 
   color: inherit;
@@ -60,13 +61,20 @@ const Github = styled(GithubIcon)`
   color: white;
 `;
 
+const Break = styled.span`
+  display: block;
+
+  font-size: 12px;
+  margin-top: 4px;
+`;
+
 export function Footer() {
   return (
     <Container>
       <Message>
-        Made with <Code /> by <Link to="https://dustinschau.com" target="_blank" rel="noopener">Dustin Schau</Link>
+        Made with <Code /> by <Link href="https://dustinschau.com" target="_blank" rel="noopener">Dustin Schau</Link> <Break>for <Link href="https://manning.com" target="_blank" rel="noopener">Manning</Link></Break>
       </Message>
-      <GithubLink to="https://github.com" target="_blank" rel="noopener"><Github /></GithubLink>
+      <GithubLink href="https://github.com" target="_blank" rel="noopener"><Github /></GithubLink>
     </Container>
   );
 }

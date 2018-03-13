@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import GatsbyLink from 'gatsby-link'
 import styled, { injectGlobal } from 'styled-components';
 
-import { WIGGLE_AND_SCALE } from '../../style';
+import { MEDIA, WIGGLE_AND_SCALE } from '../../style';
 
 const Container = styled.header`
   display: flex;
@@ -14,13 +14,25 @@ const Container = styled.header`
 
 const Title = styled.h1`
   font-family: 'Bungee', cursive;
-  font-size: 140px;
+  font-size: 50px;
   font-weight: 400;
   padding: 1rem;
   position: relative;
   z-index: 2;
   :hover {
-    animation: ${WIGGLE_AND_SCALE} 750ms ease-in-out;
+    animation: ${WIGGLE_AND_SCALE} 750ms ease-in-out 250ms;
+  }
+
+  ${MEDIA.greaterThan('small')} {
+    font-size: 90px;
+  }
+
+  ${MEDIA.greaterThan('medium')} {
+    font-size: 100px;
+  }
+
+  ${MEDIA.greaterThan('large')} {
+    font-size: 140px;
   }
 `;
 
@@ -28,10 +40,22 @@ const Subtitle = styled(Title)`
   font-family: 'Bungee', cursive;
   background-color: #F2FFE3;
   color: #1595A3;
-  font-size: 32px;
+  font-size: 16px;
   margin: 0;
   padding: 1rem;
   white-space: no-wrap;
+
+  ${MEDIA.greaterThan('small')} {
+    font-size: 20px;
+  }
+
+  ${MEDIA.greaterThan('medium')} {
+    font-size: 22px;
+  }
+
+  ${MEDIA.greaterThan('large')} {
+    font-size: 32px;
+  }
 `.withComponent('h2');
 
 export class Header extends Component {
