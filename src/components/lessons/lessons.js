@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Lesson } from '../';
-import { MEDIA } from '../../style/';
+import { Lesson } from '..';
+import { MEDIA } from '../../style';
 
 const Grid = styled.div`
   display: grid;
