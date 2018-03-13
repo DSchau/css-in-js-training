@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
-import { Header } from '../components';
+import { Footer, Header } from '../components';
 
 import '../style';
 import 'normalize.css';
@@ -27,6 +27,7 @@ export default ({ children, data }) => (
     <Content>
       {children()}
     </Content>
+    <Footer />
   </Container>
 )
 
