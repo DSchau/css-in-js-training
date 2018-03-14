@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import GatsbyLink from 'gatsby-link';
 
-import { getColorFromString } from '../../style';
+import { MEDIA, getColorFromString } from '../../style';
 
 const Container = styled.div`
   display: flex;
@@ -10,7 +10,6 @@ const Container = styled.div`
 
   background-color: white;
   box-shadow: 0 2px 8px rgba(34, 83, 120, 0.175);
-  margin: 10px;
   transition: 175ms ease-in-out;
 
   :hover {
@@ -22,7 +21,6 @@ const Container = styled.div`
 const TitleContainer = styled.div`
   background-color: ${props => props.backgroundColor};
   padding: 2rem;
-  margin-bottom: 12px;
   text-align: center;
 
   min-height: 80px;
@@ -39,22 +37,21 @@ const Title = styled.h1`
   text-shadow: 0 0 2px ${props => props.textShadow};
 `;
 
-const Category = styled.span`
-  display: block;
+const Category = styled.div`
   background-color: white;
   color: ${props => props.color};
   font-size: 12px;
-  padding: 4px;
+  font-weight: 700;
+  padding: 6px 4px;
+  margin-top: auto;
+
+  border: 1px solid ${props => props.color};
+  border-left-width: 0;
+  border-right-width: 0;
 
   text-align: center;
-
-  margin-top: auto;
 `;
 
-const Link = styled(GatsbyLink)`
-  display: flex;
-  color: inherit;
-`;
 
 const Content = styled.div`
   display: flex;
@@ -65,6 +62,8 @@ const Content = styled.div`
 
 const Description = styled.p`
   margin: 0;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
   line-height: 2;
 
   color: #444;
@@ -83,11 +82,21 @@ const LessonIndex = styled.h3`
   color: rgba(255, 255, 255, 0.25);
 `;
 
+const Link = styled(GatsbyLink)`
+  display: flex;
+  margin: 0.5rem;
+
+  ${MEDIA.medium`
+    margin: 1rem;
+  `}
+`;
+
 export function Lesson({ fields, frontmatter, html, number }) {
   const { description, title } = frontmatter;
   const color = {
     base: getColorFromString(title),
-    darkened: getColorFromString(title, 50, 15)
+    darkened: getColorFromString(title, 50, 15),
+    section: getColorFromString(fields.section)
   };
   return (
     <Link to={fields.slug}>
@@ -98,7 +107,7 @@ export function Lesson({ fields, frontmatter, html, number }) {
         </TitleContainer>
         <Content>
           <Description>{description}</Description>
-          <Category color={color.base}>{fields.section}</Category>
+          <Category color={color.section}>{fields.section}</Category>
         </Content>
       </Container>
     </Link>

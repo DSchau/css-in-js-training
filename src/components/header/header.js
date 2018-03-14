@@ -19,21 +19,22 @@ const Title = styled.h1`
   padding: 1rem;
   position: relative;
   z-index: 2;
+  pointer-events: none;
   :hover {
     animation: ${WIGGLE_AND_SCALE} 750ms ease-in-out 250ms;
   }
 
-  ${MEDIA.greaterThan('small')} {
+  ${MEDIA.small`
     font-size: 90px;
-  }
+  `}
 
-  ${MEDIA.greaterThan('medium')} {
+  ${MEDIA.medium`
     font-size: 100px;
-  }
+  `}
 
-  ${MEDIA.greaterThan('large')} {
+  ${MEDIA.large`
     font-size: 140px;
-  }
+  `}
 `;
 
 const Subtitle = styled(Title)`
@@ -45,17 +46,17 @@ const Subtitle = styled(Title)`
   padding: 1rem;
   white-space: no-wrap;
 
-  ${MEDIA.greaterThan('small')} {
+  ${MEDIA.small`
     font-size: 20px;
-  }
+  `}
 
-  ${MEDIA.greaterThan('medium')} {
+  ${MEDIA.medium`
     font-size: 22px;
-  }
+  `}
 
-  ${MEDIA.greaterThan('large')} {
+  ${MEDIA.large`
     font-size: 32px;
-  }
+  `}
 `.withComponent('h2');
 
 export class Header extends Component {

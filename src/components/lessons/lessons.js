@@ -7,15 +7,14 @@ import { MEDIA } from '../../style';
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 100%;
-  padding: 1rem;
 
-  ${MEDIA.greaterThan('medium')} {
+  ${MEDIA.medium`
     grid-template-columns: 50% 50%;
-  }
+  `}
 
-  ${MEDIA.greaterThan('large')} {
+  ${MEDIA.large`
     grid-template-columns: 33.33% 33.33% 33.33%;
-  }
+  `}
 `;
 
 export function Lessons({ list = [] }) {

@@ -12,13 +12,15 @@ const content = fs.readdirSync(base)
       path: path.join(base, lesson)
     }
   }))
-  .concat({
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      name: `content`,
-      path: `${__dirname}/content`,
-    }
-  });
+  .concat([
+    {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          name: `content`,
+          path: `${__dirname}/content`,
+        }
+      }
+  ])
 
 module.exports = {
   siteMetadata: {
@@ -29,12 +31,15 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-remove-trailing-slashes',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/util/typography'
       }
     },
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
