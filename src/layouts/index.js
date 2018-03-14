@@ -11,7 +11,7 @@ const Container = styled.div``;
 
 const Content = styled.main`
   margin: 0 auto;
-  paddingTop: 0;
+  paddingtop: 0;
 `;
 
 export default ({ children, data }) => (
@@ -20,16 +20,17 @@ export default ({ children, data }) => (
       title="CSS in JS with styled-components and React"
       meta={[
         { name: 'description', content: 'CSS in JS Training by Dustin Schau' },
-        { name: 'keywords', content: 'css in js, training, styled-components, glamorous, react' },
+        {
+          name: 'keywords',
+          content: 'css in js, training, styled-components, glamorous, react'
+        }
       ]}
     />
     <Header title="CSS in JS" subTitle="with styled-components and React" />
-    <Content>
-      {children()}
-    </Content>
+    <Content>{children()}</Content>
     <Footer />
   </Container>
-)
+);
 
 export const pageQuery = graphql`
   query IndexLayoutQuery {

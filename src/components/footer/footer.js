@@ -32,7 +32,7 @@ const Link = styled.a`
   font-weight: 700;
 
   color: inherit;
-  
+
   :hover {
     color: inherit;
   }
@@ -72,9 +72,20 @@ export function Footer() {
   return (
     <Container>
       <Message>
-        Made with <Code /> by <Link href="https://dustinschau.com" target="_blank" rel="noopener">Dustin Schau</Link> <Break>for <Link href="https://manning.com" target="_blank" rel="noopener">Manning</Link></Break>
+        Made with <Code /> by{' '}
+        <Link href="https://dustinschau.com" target="_blank" rel="noopener">
+          Dustin Schau
+        </Link>{' '}
+        <Break>
+          for{' '}
+          <Link href="https://manning.com" target="_blank" rel="noopener">
+            Manning
+          </Link>
+        </Break>
       </Message>
-      <GithubLink href="https://github.com" target="_blank" rel="noopener"><Github /></GithubLink>
+      <GithubLink href="https://github.com" target="_blank" rel="noopener">
+        <Github />
+      </GithubLink>
     </Container>
   );
 }

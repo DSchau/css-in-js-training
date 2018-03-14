@@ -52,7 +52,6 @@ const Category = styled.div`
   text-align: center;
 `;
 
-
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,7 +87,7 @@ const Link = styled(GatsbyLink)`
 
   ${MEDIA.medium`
     margin: 1rem;
-  `}
+  `};
 `;
 
 export function Lesson({ fields, frontmatter, html, number }) {

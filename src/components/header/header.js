@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import GatsbyLink from 'gatsby-link'
+import React, { Component } from 'react';
+import GatsbyLink from 'gatsby-link';
 import styled, { injectGlobal } from 'styled-components';
 
 import { MEDIA, WIGGLE_AND_SCALE } from '../../style';
@@ -7,7 +7,7 @@ import { MEDIA, WIGGLE_AND_SCALE } from '../../style';
 const Container = styled.header`
   display: flex;
   flex-direction: column;
-  background-color: #1595A3;
+  background-color: #1595a3;
 
   position: relative;
 `;
@@ -77,7 +77,7 @@ export class Header extends Component {
           style={{
             margin: '0 auto',
             maxWidth: 960,
-            padding: '1.45rem 1.0875rem',
+            padding: '1.45rem 1.0875rem'
           }}
         >
           <Title style={{ margin: 0 }}>
@@ -85,7 +85,7 @@ export class Header extends Component {
               to="/"
               style={{
                 color: 'white',
-                textDecoration: 'none',
+                textDecoration: 'none'
               }}
             >
               {title}
@@ -105,4 +105,3 @@ injectGlobal`
     left: 0;
   }
 `;
-

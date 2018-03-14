@@ -18,7 +18,7 @@ const AboutContainer = styled.div`
   ${MEDIA.medium`
     grid-template-columns: 45% 55%;
     margin: 2rem auto;
-  `}
+  `};
 `;
 
 const AboutMe = styled.div`
@@ -50,12 +50,12 @@ const AboutHeader = styled.h1`
 
   ${MEDIA.medium`
     font-size: 28px;
-  `}
-
-  ${props => props.inverted && css`
-    color: white;
-    background-color: rgba(34, 83, 120, 1);
-  `}
+  `} ${props =>
+    props.inverted &&
+    css`
+      color: white;
+      background-color: rgba(34, 83, 120, 1);
+    `};
 `;
 
 const Description = styled.p`
@@ -67,9 +67,11 @@ const Description = styled.p`
   font-size: 18px;
   line-height: 2;
 
-  ${props => props.inverted && css`
-    color: rgba(34, 83, 120, 1);
-  `}
+  ${props =>
+    props.inverted &&
+    css`
+      color: rgba(34, 83, 120, 1);
+    `};
 `;
 
 const Image = styled(GatsbyImage)`
@@ -85,7 +87,12 @@ export default function IndexPage({ data }) {
       <AboutContainer>
         <AboutMe>
           <AboutHeader inverted>About the instructor</AboutHeader>
-          <Image resolutions={image.childImageSharp.resolutions} outerWrapperClassName={css`color: red;`}/>
+          <Image
+            resolutions={image.childImageSharp.resolutions}
+            outerWrapperClassName={css`
+              color: red;
+            `}
+          />
           <Description inverted>{metaTags.about}</Description>
         </AboutMe>
         <AboutCourse>
@@ -100,18 +107,18 @@ export default function IndexPage({ data }) {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    lessons:allMarkdownRemark(
-      filter:{fields:{type:{eq:"lesson"}}}
-      sort:{order:ASC, fields:[id]}
+    lessons: allMarkdownRemark(
+      filter: { fields: { type: { eq: "lesson" } } }
+      sort: { order: ASC, fields: [id] }
     ) {
-        edges {
-          node {
-            ...LessonFragment
-          }
+      edges {
+        node {
+          ...LessonFragment
         }
       }
+    }
 
-    image:file(relativePath:{regex:"/images/dustin-schau/"}) {
+    image: file(relativePath: { regex: "/images/dustin-schau/" }) {
       childImageSharp {
         resolutions(width: 125, height: 125) {
           ...GatsbyImageSharpResolutions_tracedSVG
@@ -119,7 +126,7 @@ export const pageQuery = graphql`
       }
     }
 
-    metaTags:contentYaml {
+    metaTags: contentYaml {
       about
       description
     }
