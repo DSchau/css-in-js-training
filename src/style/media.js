@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 const breakpoints = {
   xsmall: 0,
   small: 480,
@@ -5,11 +7,12 @@ const breakpoints = {
   large: 1024,
 };
 
-export const MEDIA = {
-  greaterThan(property) {
-    if (!breakpoints.hasOwnProperty(property)) {
-      throw new Error(`The property ${property} is not a valid breakpoint`);
+export const MEDIA = Object.keys(breakpoints).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media only screen and (min-width: ${breakpoints[label]}px) {
+      ${css(...args)}
     }
-    return `@media only screen and (min-width: ${breakpoints[property]}px)`;
-  },
-};
+  `;
+
+  return acc;
+}, {});
