@@ -19,6 +19,7 @@ const Title = styled.h1`
   padding: 1rem;
   position: relative;
   z-index: 2;
+  pointer-events: none;
   :hover {
     animation: ${WIGGLE_AND_SCALE} 750ms ease-in-out 250ms;
   }

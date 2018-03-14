@@ -39,12 +39,17 @@ const Title = styled.h1`
   text-shadow: 0 0 2px ${props => props.textShadow};
 `;
 
-const Category = styled.span`
-  display: block;
+const Category = styled.div`
   background-color: white;
   color: ${props => props.color};
   font-size: 12px;
-  padding: 4px;
+  font-weight: 700;
+  padding: 6px 4px;
+  margin-top: 6px;
+
+  border: 1px solid ${props => props.color};
+  border-left-width: 0;
+  border-right-width: 0;
 
   text-align: center;
 
@@ -87,7 +92,8 @@ export function Lesson({ fields, frontmatter, html, number }) {
   const { description, title } = frontmatter;
   const color = {
     base: getColorFromString(title),
-    darkened: getColorFromString(title, 50, 15)
+    darkened: getColorFromString(title, 50, 15),
+    section: getColorFromString(fields.section)
   };
   return (
     <Link to={fields.slug}>
@@ -98,7 +104,7 @@ export function Lesson({ fields, frontmatter, html, number }) {
         </TitleContainer>
         <Content>
           <Description>{description}</Description>
-          <Category color={color.base}>{fields.section}</Category>
+          <Category color={color.section}>{fields.section}</Category>
         </Content>
       </Container>
     </Link>
