@@ -81,7 +81,7 @@ const Image = styled(GatsbyImage)`
 `;
 
 export default function IndexPage({ data }) {
-  const { about, lessons, image, metaTags = {} } = data;
+  const { about, lessons, image, meta = {} } = data;
   return (
     <Container>
       <AboutContainer>
@@ -90,7 +90,7 @@ export default function IndexPage({ data }) {
           html={about.html}
           avatar={about.frontmatter.avatar}
         />
-        <About title="What you'll learn" html={metaTags.description} inverted />
+        <About title="What you'll learn" html={meta.description} inverted />
       </AboutContainer>
       <Lessons list={lessons.edges} />
     </Container>
@@ -120,10 +120,11 @@ export const pageQuery = graphql`
             }
           }
         }
+        twitter
       }
     }
 
-    metaTags: contentYaml {
+    meta: contentYaml {
       description
     }
   }

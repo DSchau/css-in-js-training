@@ -14,15 +14,70 @@ const Content = styled.main`
   paddingtop: 0;
 `;
 
-export default ({ children, data }) => (
+export default ({ children, data: { about, meta, site } }) => (
   <Container>
     <Helmet
-      title="CSS in JS with styled-components and React"
+      title={meta.title}
       meta={[
-        { name: 'description', content: 'CSS in JS Training by Dustin Schau' },
+        {
+          name: 'description',
+          content: meta.description
+        },
         {
           name: 'keywords',
-          content: 'css in js, training, styled-components, glamorous, react'
+          content: meta.keywords.join(',')
+        },
+        {
+          name: 'og:type',
+          content: 'website'
+        },
+        {
+          name: 'og:url',
+          content: site.siteMetadata.domain
+        },
+        {
+          name: 'og:site_name',
+          content: meta.title
+        },
+        {
+          name: 'og:title',
+          content: meta.title
+        },
+        {
+          name: 'og:description',
+          content: meta.description
+        },
+        {
+          name: 'og:locale',
+          content: 'en_US'
+        },
+        {
+          name: 'twitter:site',
+          content: `@${about.frontmatter.twitter}`
+        },
+        {
+          name: 'twitter:creator',
+          content: `@${about.frontmatter.twitter}`
+        },
+        {
+          name: 'twitter:url',
+          content: site.siteMetadata.domain
+        },
+        {
+          name: 'twitter:title',
+          content: meta.title
+        },
+        {
+          name: 'twitter:description',
+          content: meta.description
+        },
+        {
+          name: 'subject',
+          content: meta.subject
+        },
+        {
+          name: 'robots',
+          content: 'index,follow'
         }
       ]}
     />
@@ -34,9 +89,22 @@ export default ({ children, data }) => (
 
 export const pageQuery = graphql`
   query IndexLayoutQuery {
+    meta: contentYaml {
+      description
+      keywords
+      subject
+      title
+    }
+
     site {
       siteMetadata {
-        title
+        domain
+      }
+    }
+
+    about: markdownRemark(fileAbsolutePath: { regex: "/content/bio.md/" }) {
+      frontmatter {
+        twitter
       }
     }
   }

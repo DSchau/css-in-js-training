@@ -27,7 +27,8 @@ const content = fs
 
 module.exports = {
   siteMetadata: {
-    title: 'CSS in JS with styled-components and React'
+    domain: 'https://css-in-js-training.dustinschau.com',
+    title: 'CSS in JS with Styled Components and React'
   },
   plugins: [
     'gatsby-plugin-react-next',
