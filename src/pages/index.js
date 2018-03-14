@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
-import { Lessons } from '../components';
+import { About, Lessons } from '../components';
 import { MEDIA } from '../style';
 
 const Container = styled.div`
@@ -64,7 +64,7 @@ const Description = styled.p`
   margin: 0;
   padding: 1rem;
 
-  font-size: 18px;
+  font-size: 16px;
   line-height: 2;
 
   ${props =>
@@ -81,24 +81,16 @@ const Image = styled(GatsbyImage)`
 `;
 
 export default function IndexPage({ data }) {
-  const { lessons, image, metaTags = {} } = data;
+  const { about, lessons, image, metaTags = {} } = data;
   return (
     <Container>
       <AboutContainer>
-        <AboutMe>
-          <AboutHeader inverted>About the instructor</AboutHeader>
-          <Image
-            resolutions={image.childImageSharp.resolutions}
-            outerWrapperClassName={css`
-              color: red;
-            `}
-          />
-          <Description inverted>{metaTags.about}</Description>
-        </AboutMe>
-        <AboutCourse>
-          <AboutHeader>What you'll learn</AboutHeader>
-          <Description>{metaTags.description}</Description>
-        </AboutCourse>
+        <About
+          title="About the instructor"
+          html={about.html}
+          avatar={about.frontmatter.avatar}
+        />
+        <About title="What you'll learn" html={metaTags.description} inverted />
       </AboutContainer>
       <Lessons list={lessons.edges} />
     </Container>
@@ -118,16 +110,20 @@ export const pageQuery = graphql`
       }
     }
 
-    image: file(relativePath: { regex: "/images/dustin-schau/" }) {
-      childImageSharp {
-        resolutions(width: 125, height: 125) {
-          ...GatsbyImageSharpResolutions_tracedSVG
+    about: markdownRemark(fileAbsolutePath: { regex: "/content/bio.md/" }) {
+      html
+      frontmatter {
+        avatar {
+          childImageSharp {
+            resolutions(width: 125, height: 125) {
+              ...GatsbyImageSharpResolutions_tracedSVG
+            }
+          }
         }
       }
     }
 
     metaTags: contentYaml {
-      about
       description
     }
   }

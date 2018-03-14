@@ -33,6 +33,8 @@ const Title = styled.h1`
   color: white;
   font-size: 24px;
   font-weight: 700;
+  position: relative;
+  z-index: 2;
 
   text-shadow: 0 0 2px ${props => props.textShadow};
 `;
@@ -76,9 +78,9 @@ const LessonIndex = styled.h3`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%) scale(1.25);
 
-  color: rgba(255, 255, 255, 0.25);
+  color: ${props => props.color || 'rgba(255, 255, 255, 0.25)'};
 `;
 
 const Link = styled(GatsbyLink)`
@@ -94,6 +96,7 @@ export function Lesson({ fields, frontmatter, html, number }) {
   const { description, title } = frontmatter;
   const color = {
     base: getColorFromString(title),
+    lightened: getColorFromString(title, 50, 75),
     darkened: getColorFromString(title, 50, 15),
     section: getColorFromString(fields.section)
   };
