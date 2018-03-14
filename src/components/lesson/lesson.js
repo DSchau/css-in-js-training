@@ -63,6 +63,7 @@ const Content = styled.div`
 const Description = styled.p`
   margin: 0;
   margin-bottom: 0.5rem;
+  font-size: 14px;
   line-height: 2;
 
   color: #444;

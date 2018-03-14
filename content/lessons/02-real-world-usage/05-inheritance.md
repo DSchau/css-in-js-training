@@ -1,5 +1,5 @@
 ---
-title: Inheritance and Composition
+title: Inheritance & Composition
 description: "Traditional CSS has leveraged (almost to a fault!) inheritance with cascading styles. In this section, we'll show the CSS in JS way to instrument inheritance and customizable components."
 video: https://manning.com
 ---
