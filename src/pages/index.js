@@ -80,10 +80,10 @@ const Image = styled(GatsbyImage)`
   margin: 0.5rem auto;
 `;
 
-export default function IndexPage({ data }) {
+export default function IndexPage({ data, transition }) {
   const { about, lessons, image, meta = {} } = data;
   return (
-    <Container>
+    <Container style={transition && transition.style}>
       <AboutContainer>
         <About
           title="About the instructor"

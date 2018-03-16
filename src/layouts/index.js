@@ -11,10 +11,12 @@ const Container = styled.div``;
 
 const Content = styled.main`
   margin: 0 auto;
-  paddingtop: 0;
+  padding-top: 0;
 `;
 
-export default ({ children, data: { about, meta, site } }) => (
+const isIndex = location => location.pathname === '/';
+
+export default ({ children, data: { about, meta, site }, location }) => (
   <Container>
     <Helmet
       title={meta.title}
@@ -81,7 +83,9 @@ export default ({ children, data: { about, meta, site } }) => (
         }
       ]}
     />
-    <Header title="CSS in JS" subTitle="with styled-components and React" />
+    {isIndex(location) && (
+      <Header title="CSS in JS" subTitle="with styled-components and React" />
+    )}
     <Content>{children()}</Content>
     <Footer />
   </Container>
