@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { FADE_IN_BOTTOM, getColorFromString, MEDIA } from '../style';
 
 const Container = styled.div`
-  transform: translateY(32px) scale(0.99);
+  transform: translateY(50vh) scale(0.5);
   transform-origin: 50% 0;
   opacity: 0;
 
-  animation: ${FADE_IN_BOTTOM} 175ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: ${FADE_IN_BOTTOM} 250ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;
 
 const TitleContainer = styled.div`
@@ -38,7 +38,7 @@ const ContentContainer = styled.div`
   transform-origin: 50% 0;
   opacity: 0;
 
-  animation: ${FADE_IN_BOTTOM} 175ms cubic-bezier(0.39, 0.575, 0.565, 1) 175ms 1
+  animation: ${FADE_IN_BOTTOM} 250ms cubic-bezier(0.39, 0.575, 0.565, 1) 250ms 1
     normal both;
 
   margin: 0 auto;
