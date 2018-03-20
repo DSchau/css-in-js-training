@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Footer, Header } from '../components';
 
@@ -14,78 +14,94 @@ const Content = styled.main`
   paddingtop: 0;
 `;
 
-export default ({ children, data: { about, meta, site } }) => (
-  <Container>
-    <Helmet
-      title={meta.title}
-      meta={[
-        {
-          name: 'description',
-          content: meta.description
-        },
-        {
-          name: 'keywords',
-          content: meta.keywords.join(',')
-        },
-        {
-          name: 'og:type',
-          content: 'website'
-        },
-        {
-          name: 'og:url',
-          content: site.siteMetadata.domain
-        },
-        {
-          name: 'og:site_name',
-          content: meta.title
-        },
-        {
-          name: 'og:title',
-          content: meta.title
-        },
-        {
-          name: 'og:description',
-          content: meta.description
-        },
-        {
-          name: 'og:locale',
-          content: 'en_US'
-        },
-        {
-          name: 'twitter:site',
-          content: `@${about.frontmatter.twitter}`
-        },
-        {
-          name: 'twitter:creator',
-          content: `@${about.frontmatter.twitter}`
-        },
-        {
-          name: 'twitter:url',
-          content: site.siteMetadata.domain
-        },
-        {
-          name: 'twitter:title',
-          content: meta.title
-        },
-        {
-          name: 'twitter:description',
-          content: meta.description
-        },
-        {
-          name: 'subject',
-          content: meta.subject
-        },
-        {
-          name: 'robots',
-          content: 'index,follow'
-        }
-      ]}
-    />
-    <Header title="CSS in JS" subTitle="with styled-components and React" />
-    <Content>{children()}</Content>
-    <Footer />
-  </Container>
-);
+const StyledHeader = styled(Header)`
+  ${props =>
+    props.isHome === false &&
+    css`
+      height: 0;
+      opacity: 0;
+    `};
+`;
+
+export default ({ children, data: { about, meta, site }, location }) => {
+  const isHome = location.pathname === '/';
+  return (
+    <Container>
+      <Helmet
+        title={meta.title}
+        meta={[
+          {
+            name: 'description',
+            content: meta.description
+          },
+          {
+            name: 'keywords',
+            content: meta.keywords.join(',')
+          },
+          {
+            name: 'og:type',
+            content: 'website'
+          },
+          {
+            name: 'og:url',
+            content: site.siteMetadata.domain
+          },
+          {
+            name: 'og:site_name',
+            content: meta.title
+          },
+          {
+            name: 'og:title',
+            content: meta.title
+          },
+          {
+            name: 'og:description',
+            content: meta.description
+          },
+          {
+            name: 'og:locale',
+            content: 'en_US'
+          },
+          {
+            name: 'twitter:site',
+            content: `@${about.frontmatter.twitter}`
+          },
+          {
+            name: 'twitter:creator',
+            content: `@${about.frontmatter.twitter}`
+          },
+          {
+            name: 'twitter:url',
+            content: site.siteMetadata.domain
+          },
+          {
+            name: 'twitter:title',
+            content: meta.title
+          },
+          {
+            name: 'twitter:description',
+            content: meta.description
+          },
+          {
+            name: 'subject',
+            content: meta.subject
+          },
+          {
+            name: 'robots',
+            content: 'index,follow'
+          }
+        ]}
+      />
+      <StyledHeader
+        isHome={location.pathname === '/'}
+        title="CSS in JS"
+        subTitle="with styled-components and React"
+      />
+      <Content>{children()}</Content>
+      {isHome && <Footer />}
+    </Container>
+  );
+};
 
 export const pageQuery = graphql`
   query IndexLayoutQuery {

@@ -70,9 +70,9 @@ export class Header extends Component {
   }
 
   render() {
-    const { subTitle, title } = this.props;
+    const { className, subTitle, title } = this.props;
     return (
-      <Container id="header">
+      <Container className={className} id="header">
         <div
           style={{
             margin: '0 auto',

@@ -17,3 +17,10 @@ export const WIGGLE_AND_SCALE = keyframes`
     transform: rotate(0deg) scale(1);
   }
 `;
+
+export const FADE_IN_BOTTOM = keyframes`
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
