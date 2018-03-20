@@ -7,13 +7,12 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #eb7f00;
-
   padding: 0 0.25rem;
+  background-color: #225378;
 `;
 
 const Message = styled.p`
-  color: #f2ffff;
+  color: white;
   font-size: 14px;
   font-weight: 400;
 
@@ -39,7 +38,7 @@ const Link = styled.a`
 `;
 
 const Code = styled(CodeIcon)`
-  color: #225378;
+  color: white;
 
   font-size: 18px;
 
