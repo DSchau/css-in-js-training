@@ -14,15 +14,6 @@ const Content = styled.main`
   paddingtop: 0;
 `;
 
-const StyledHeader = styled(Header)`
-  ${props =>
-    props.isHome === false &&
-    css`
-      height: 0;
-      opacity: 0;
-    `};
-`;
-
 export default ({ children, data: { about, meta, site }, location }) => {
   const isHome = location.pathname === '/';
   return (
@@ -92,11 +83,9 @@ export default ({ children, data: { about, meta, site }, location }) => {
           }
         ]}
       />
-      <StyledHeader
-        isHome={location.pathname === '/'}
-        title="CSS in JS"
-        subTitle="with styled-components and React"
-      />
+      {isHome && (
+        <Header title="CSS in JS" subTitle="with styled-components and React" />
+      )}
       <Content>{children()}</Content>
       {isHome && <Footer />}
     </Container>
