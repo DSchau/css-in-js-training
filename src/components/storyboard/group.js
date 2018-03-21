@@ -12,13 +12,14 @@ const Title = styled.h2`
 `;
 
 const List = styled.ul`
-  margin: 0;
+  margin: 0.5rem 0;
   padding-left: 20px;
 `;
 
 const ListItem = styled.li`
-  list-style-type: none;
+  list-style-type: square;
   margin: 0;
+  margin-bottom: 8px;
 `;
 
 const isEmpty = items =>
