@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import styled, { injectGlobal } from 'styled-components';
-import qs from 'query-string';
+import qs from 'qs';
 import 'prismjs/themes/prism-tomorrow.css';
 
 import { Storyboard, StoryboardTitle } from '../components';
@@ -64,7 +64,9 @@ export default function Lesson({ data, location }) {
     darkened: getColorFromString(title, 50, 20),
     lightened: getColorFromString(title, 50, 90)
   };
-  const { storyboard: isStoryboard } = qs.parse(location.search);
+  const { storyboard: isStoryboard } = qs.parse(location.search, {
+    ignoreQueryPrefix: true
+  });
   return (
     <Container>
       <TitleContainer backgroundColor={color.base} borderColor={color.darkened}>
