@@ -50,7 +50,8 @@ module.exports = {
         plugins: [
           'gatsby-remark-responsive-iframe',
           'gatsby-remark-autolink-headers',
-          'gatsby-remark-smartypants'
+          'gatsby-remark-smartypants',
+          'gatsby-remark-prismjs'
         ]
       }
     }

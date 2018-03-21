@@ -126,7 +126,10 @@ export const lessonFragment = graphql`
     }
     frontmatter {
       description
+      diagrams
+      examples
       title
+      takeaways
     }
   }
 `;
