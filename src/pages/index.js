@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
-import { About, Lessons } from '../components';
+import { About, Units } from '../components';
 import { MEDIA } from '../style';
 
 const Container = styled.div`
@@ -81,7 +81,7 @@ const Image = styled(GatsbyImage)`
 `;
 
 export default function IndexPage({ data }) {
-  const { about, lessons, image, meta = {} } = data;
+  const { about, image, meta = {}, units } = data;
   return (
     <Container>
       <AboutContainer>
@@ -92,20 +92,20 @@ export default function IndexPage({ data }) {
         />
         <About title="What you'll learn" html={meta.description} inverted />
       </AboutContainer>
-      <Lessons list={lessons.edges} />
+      <Units list={units.edges} />
     </Container>
   );
 }
 
 export const pageQuery = graphql`
   query IndexQuery {
-    lessons: allMarkdownRemark(
-      filter: { fields: { type: { eq: "lesson" } } }
+    units: allMarkdownRemark(
+      filter: { fields: { type: { eq: "unit" } } }
       sort: { order: ASC, fields: [id] }
     ) {
       edges {
         node {
-          ...LessonFragment
+          ...UnitFragment
         }
       }
     }

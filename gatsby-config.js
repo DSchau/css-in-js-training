@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const base = path.resolve('content/lessons');
+const base = path.resolve('content/modules');
 
 const content = fs
   .readdirSync(base)
@@ -11,7 +11,7 @@ const content = fs
   .map(lesson => ({
     resolve: 'gatsby-source-filesystem',
     options: {
-      name: 'lessons',
+      name: 'modules',
       path: path.join(base, lesson)
     }
   }))

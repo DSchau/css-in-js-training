@@ -57,8 +57,8 @@ const ContentContainer = styled.div`
 const Content = styled.div``;
 
 export default function Lesson({ data, location }) {
-  const { lesson } = data;
-  const { title } = lesson.frontmatter;
+  const { unit } = data;
+  const { title } = unit.frontmatter;
   const color = {
     base: getColorFromString(title),
     darkened: getColorFromString(title, 50, 20),
@@ -75,20 +75,20 @@ export default function Lesson({ data, location }) {
       <ContentContainer borderColor={color.lightened}>
         {isStoryboard && (
           <Fragment>
-            <Storyboard {...lesson.frontmatter} />
+            <Storyboard {...unit.frontmatter} />
             <StoryboardTitle>Content</StoryboardTitle>
           </Fragment>
         )}
-        <Content dangerouslySetInnerHTML={{ __html: lesson.html }} />
+        <Content dangerouslySetInnerHTML={{ __html: unit.html }} />
       </ContentContainer>
     </Container>
   );
 }
 
 export const pageQuery = graphql`
-  query LessonBySlugQuery($slug: String!) {
-    lesson: markdownRemark(fields: { slug: { eq: $slug } }) {
-      ...LessonFragment
+  query UnitBySlugQuery($slug: String!) {
+    unit: markdownRemark(fields: { slug: { eq: $slug } }) {
+      ...UnitFragment
     }
   }
 `;

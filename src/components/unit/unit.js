@@ -70,7 +70,7 @@ const Description = styled.p`
   color: #444;
 `;
 
-const LessonIndex = styled.h3`
+const UnitIndex = styled.h3`
   margin: 0;
 
   font-size: 80px;
@@ -92,7 +92,7 @@ const Link = styled(GatsbyLink)`
   `};
 `;
 
-export function Lesson({ fields, frontmatter, html, number }) {
+export function Unit({ fields, frontmatter, html, number }) {
   const { description, title } = frontmatter;
   const color = {
     base: getColorFromString(title),
@@ -105,7 +105,7 @@ export function Lesson({ fields, frontmatter, html, number }) {
       <Container>
         <TitleContainer backgroundColor={color.base}>
           <Title textShadow={color.darkened}>{title}</Title>
-          <LessonIndex>{number}</LessonIndex>
+          <UnitIndex>{number}</UnitIndex>
         </TitleContainer>
         <Content>
           <Description>{description}</Description>
@@ -116,8 +116,8 @@ export function Lesson({ fields, frontmatter, html, number }) {
   );
 }
 
-export const lessonFragment = graphql`
-  fragment LessonFragment on MarkdownRemark {
+export const unitFragment = graphql`
+  fragment UnitFragment on MarkdownRemark {
     id
     html
     fields {
