@@ -3,7 +3,7 @@ import styled, { injectGlobal } from 'styled-components';
 import qs from 'qs';
 import 'prismjs/themes/prism-tomorrow.css';
 
-import { Storyboard, StoryboardTitle } from '../components';
+import { Storyboard, StoryboardTitle, StoryboardSwitcher } from '../components';
 import { FADE_IN_BOTTOM, getColorFromString, MEDIA } from '../style';
 
 const Container = styled.div`
@@ -71,6 +71,7 @@ export default function Lesson({ data, location }) {
     <Container>
       <TitleContainer backgroundColor={color.base} borderColor={color.darkened}>
         <Title>{title}</Title>
+        <StoryboardSwitcher />
       </TitleContainer>
       <ContentContainer borderColor={color.lightened}>
         {isStoryboard && (
