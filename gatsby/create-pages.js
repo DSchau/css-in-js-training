@@ -4,11 +4,13 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
   const { createPage } = boundActionCreators;
 
   const contentTemplate = path.resolve('src/templates/content.js');
-  const lessonTemplate = path.resolve('src/templates/lesson.js');
+  const lessonTemplate = path.resolve('src/templates/unit.js');
 
   return graphql(`
     {
-      content:allMarkdownRemark(filter:{fields:{type:{eq:"content"}}}) {
+      content: allMarkdownRemark(
+        filter: { fields: { type: { eq: "content" } } }
+      ) {
         edges {
           node {
             id
@@ -18,7 +20,7 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
           }
         }
       }
-      lessons:allMarkdownRemark(filter:{fields:{type:{eq:"lesson"}}}) {
+      units: allMarkdownRemark(filter: { fields: { type: { eq: "unit" } } }) {
         edges {
           node {
             id
@@ -29,38 +31,33 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
         }
       }
     }
-  `)
-    .then(result => {
-      if (result.errors) {
-        return Promise.reject(result.errors);
-      }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
 
-      const {
-        content,
-        lessons
-      } = result.data;
+    const { content, units } = result.data;
 
-      content.edges.forEach(({ node }) => {
-        const { slug } = node.fields;
-        createPage({
-          path: `/${slug}`,
-          component: contentTemplate,
-          context: {
-            slug
-          }
-        });
+    content.edges.forEach(({ node }) => {
+      const { slug } = node.fields;
+      createPage({
+        path: `/${slug}`,
+        component: contentTemplate,
+        context: {
+          slug
+        }
       });
-
-      lessons.edges.forEach(({ node }) => {
-        const { slug } = node.fields;
-        createPage({
-          path: `/${slug}`,
-          component: lessonTemplate,
-          context: {
-            slug
-          }
-        });
-      });
-
     });
+
+    units.edges.forEach(({ node }) => {
+      const { slug } = node.fields;
+      createPage({
+        path: `/${slug}`,
+        component: lessonTemplate,
+        context: {
+          slug
+        }
+      });
+    });
+  });
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Lesson } from '..';
+import { Unit } from '..';
 import { MEDIA } from '../../style';
 
 const Grid = styled.div`
@@ -15,11 +15,11 @@ const Grid = styled.div`
   `};
 `;
 
-export function Lessons({ list = [] }) {
+export function Units({ list = [] }) {
   return (
     <Grid>
       {list.map(({ node }, index) => (
-        <Lesson key={node.id} number={index + 1} {...node} />
+        <Unit key={node.id} number={index + 1} {...node} />
       ))}
     </Grid>
   );
