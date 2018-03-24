@@ -4,7 +4,10 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
   const { createPage } = boundActionCreators;
 
   const contentTemplate = path.resolve('src/templates/content.js');
-  const lessonTemplate = path.resolve('src/templates/unit.js');
+  const unitTemplate = path.resolve('src/templates/unit.js');
+  const unitTemplateWithStoryboard = path.resolve(
+    'src/templates/unit-storyboard.js'
+  );
 
   return graphql(`
     {
@@ -53,7 +56,14 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
       const { slug } = node.fields;
       createPage({
         path: `/${slug}`,
-        component: lessonTemplate,
+        component: unitTemplate,
+        context: {
+          slug
+        }
+      });
+      createPage({
+        path: `/${slug}/storyboard`,
+        component: unitTemplateWithStoryboard,
         context: {
           slug
         }
