@@ -5,7 +5,7 @@ import ChevronLeft from 'react-icons/lib/md/chevron-left';
 import 'prismjs/themes/prism-tomorrow.css';
 
 import { Share, Storyboard, StoryboardTitle } from '../components';
-import { FADE_IN_BOTTOM, getColorFromString, MEDIA } from '../style';
+import { FADE_IN_BOTTOM, MEDIA, getColorFromString } from '../style';
 
 const Container = styled.div`
   transform: translateY(50vh) scale(0.5);
@@ -31,10 +31,16 @@ const TitleContainer = styled.div`
 const Title = styled.h1`
   margin: 0;
   color: white;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 700;
   position: relative;
   z-index: 2;
+
+  ${MEDIA.medium`
+    font-size: 32px;
+  `} ${MEDIA.large`
+    font-size: 40px;
+  `};
 `;
 
 const ContentContainer = styled.div`
@@ -76,10 +82,15 @@ const Link = styled(GatsbyLink)`
 
   position: absolute;
   left: 0;
+  top: 0;
 
   :hover {
     color: white;
   }
+
+  ${MEDIA.medium`
+    top: auto;
+  `};
 `;
 
 const BackText = styled.span`
