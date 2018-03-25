@@ -5,9 +5,7 @@ import GatsbyImage from 'gatsby-image';
 import { About, Units } from '../components';
 import { MEDIA } from '../style';
 
-const Container = styled.div`
-  padding: 1rem;
-`;
+const Container = styled.div``;
 
 const AboutContainer = styled.div`
   display: grid;
@@ -81,16 +79,21 @@ const Image = styled(GatsbyImage)`
 `;
 
 export default function IndexPage({ data }) {
-  const { about, image, meta = {}, units } = data;
+  const { about, image, learn, meta = {}, units } = data;
   return (
     <Container>
       <AboutContainer>
         <About
           title="About the instructor"
           html={about.html}
-          avatar={about.frontmatter.avatar}
+          image={about.frontmatter.avatar}
         />
-        <About title="What you'll learn" html={meta.description} inverted />
+        <About
+          title="What you'll learn"
+          html={meta.description}
+          image={learn}
+          inverted
+        />
       </AboutContainer>
       <Units list={units.edges} />
     </Container>
@@ -121,6 +124,14 @@ export const pageQuery = graphql`
           }
         }
         twitter
+      }
+    }
+
+    learn: file(absolutePath: { regex: "/images/learn.jpeg/" }) {
+      childImageSharp {
+        resolutions(width: 125, height: 125) {
+          ...GatsbyImageSharpResolutions_tracedSVG
+        }
       }
     }
 

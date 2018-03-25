@@ -11,7 +11,7 @@ const Container = styled.div``;
 
 const Content = styled.main`
   margin: 0 auto;
-  paddingtop: 0;
+  padding-top: 0;
 `;
 
 export default ({ children, data: { about, meta, site }, location }) => {

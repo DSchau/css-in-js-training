@@ -10,20 +10,25 @@ CSS in JS is not--and I cannot stress this enough--inline styles. By its very de
 
 ## Inline styles
 
-Inline styles are notoriously hard to maintain, as well as being akin to an anti-pattern.
+Inline styles are notoriously hard to maintain _and_ extend. So while an inline style does solve the inherent scoping issues of CSS, it does so in a way that is not what most would consider the most user-friendly nor developer-friendly.
 
 ```javascript
 import React from 'react';
 
-export default function HelloWorld() {
+export function Button(props) {
   return (
-    <h1
+    <button
       style={{
-        color: 'red'
+        backgroundColor: 'white',
+        color: '#3ecf8e',
+        border: 'none',
+        borderRadius: 8,
+        webkitTransition: '175ms ease-in-out',
+        transition: '175ms ease-in-out'
       }}
     >
-      Hello World
-    </h1>
+      Click me
+    </button>
   );
 }
 ```

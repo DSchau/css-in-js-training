@@ -51,7 +51,14 @@ module.exports = {
           'gatsby-remark-responsive-iframe',
           'gatsby-remark-autolink-headers',
           'gatsby-remark-smartypants',
-          'gatsby-remark-prismjs'
+          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              linkImagesToOriginal: false,
+              maxWidth: 800
+            }
+          }
         ]
       }
     }

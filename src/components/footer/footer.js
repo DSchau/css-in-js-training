@@ -9,6 +9,7 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 0 0.25rem;
   background-color: #225378;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 `;
 
 const Message = styled.p`

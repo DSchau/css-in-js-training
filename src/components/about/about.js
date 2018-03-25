@@ -59,13 +59,25 @@ const Description = styled.div`
 
   font-size: 16px;
   line-height: 2;
+
+  a {
+    color: #1595a3;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-skip: ink;
+  }
+
+  a:hover {
+    color: #1595a3;
+    text-decoration: none;
+  }
 `;
 
-export function About({ avatar, html, title, inverted, ...rest }) {
+export function About({ image, html, title, inverted, ...rest }) {
   return (
     <Container inverted={inverted} {...rest}>
       <Title className="title">{title}</Title>
-      {avatar && <Image resolutions={avatar.childImageSharp.resolutions} />}
+      {image && <Image resolutions={image.childImageSharp.resolutions} />}
       <Description
         className="description"
         dangerouslySetInnerHTML={{ __html: html }}

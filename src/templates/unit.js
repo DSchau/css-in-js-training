@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import styled, { injectGlobal } from 'styled-components';
+import GatsbyLink from 'gatsby-link';
+import ChevronLeft from 'react-icons/lib/md/chevron-left';
 import 'prismjs/themes/prism-tomorrow.css';
 
-import { Storyboard, StoryboardTitle } from '../components';
+import { Share, Storyboard, StoryboardTitle } from '../components';
 import { FADE_IN_BOTTOM, getColorFromString, MEDIA } from '../style';
 
 const Container = styled.div`
@@ -14,6 +16,9 @@ const Container = styled.div`
 `;
 
 const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
   text-align: center;
   min-height: 80px;
@@ -53,10 +58,37 @@ const ContentContainer = styled.div`
   }
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+`;
+
+const BackIcon = styled(ChevronLeft)`
+  color: white;
+  font-size: 48px;
+`;
+
+const Link = styled(GatsbyLink)`
+  color: white;
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+
+  position: absolute;
+  left: 0;
+
+  :hover {
+    color: white;
+  }
+`;
+
+const BackText = styled.span`
+  position: relative;
+  left: -12px;
+`;
 
 export default function Lesson({ data, location, storyboard: isStoryboard }) {
-  const { unit } = data;
+  const { site, unit } = data;
   const { title } = unit.frontmatter;
   const color = {
     base: getColorFromString(title),
@@ -66,6 +98,9 @@ export default function Lesson({ data, location, storyboard: isStoryboard }) {
   return (
     <Container>
       <TitleContainer backgroundColor={color.base} borderColor={color.darkened}>
+        <Link to="/">
+          <BackIcon /> <BackText>all units</BackText>
+        </Link>
         <Title>{title}</Title>
       </TitleContainer>
       <ContentContainer borderColor={color.lightened}>
@@ -76,6 +111,10 @@ export default function Lesson({ data, location, storyboard: isStoryboard }) {
           </Fragment>
         )}
         <Content dangerouslySetInnerHTML={{ __html: unit.html }} />
+        <Share
+          permalink={`${site.siteMetadata.domain}/${unit.fields.slug}`}
+          title={title}
+        />
       </ContentContainer>
     </Container>
   );
@@ -85,6 +124,12 @@ export const pageQuery = graphql`
   query UnitBySlugQuery($slug: String!) {
     unit: markdownRemark(fields: { slug: { eq: $slug } }) {
       ...UnitFragment
+    }
+
+    site {
+      siteMetadata {
+        domain
+      }
     }
   }
 `;

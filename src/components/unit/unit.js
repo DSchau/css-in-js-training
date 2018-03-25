@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
 import GatsbyLink from 'gatsby-link';
 
 import { MEDIA, getColorFromString } from '../../style';
@@ -131,5 +131,12 @@ export const unitFragment = graphql`
       title
       takeaways
     }
+  }
+`;
+
+injectGlobal`
+  .gatsby-resp-image-link {
+    margin-left: calc(-1 * (10px + 1rem));
+    margin-right: calc(-1 * (10px + 1rem));
   }
 `;
