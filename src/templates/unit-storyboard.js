@@ -11,5 +11,11 @@ export const pageQuery = graphql`
     unit: markdownRemark(fields: { slug: { eq: $slug } }) {
       ...UnitFragment
     }
+
+    site {
+      siteMetadata {
+        domain
+      }
+    }
   }
 `;
