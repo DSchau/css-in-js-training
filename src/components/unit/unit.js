@@ -9,12 +9,13 @@ const Container = styled.div`
   flex-direction: column;
 
   background-color: white;
-  box-shadow: 0 2px 8px rgba(34, 83, 120, 0.175);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   transition: 175ms ease-in-out;
+  outline: 1px solid rgba(0, 0, 0, 0.25);
 
   :hover {
     transform: scale(1.025) translateY(-4px);
-    box-shadow: 0 2px 10px rgba(34, 83, 120, 0.25);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   }
 `;
 
