@@ -24,7 +24,7 @@ const Grid = styled.div`
 
 const Previous = styled(Unit)`
   ${props =>
-    props.next === false &&
+    props.hasNext === false &&
     css`
       grid-column: 1;
     `};
@@ -32,7 +32,7 @@ const Previous = styled(Unit)`
 
 const Next = styled(Unit)`
   ${props =>
-    props.prev === false &&
+    props.hasPrev === false &&
     css`
       grid-column: 2;
     `};
@@ -47,8 +47,8 @@ export function ReadMore({ prev = {}, next = {} }) {
     <Container>
       <Title>Continue reading</Title>
       <Grid>
-        <Previous previous={true} next={!!next} {...prev} />
-        <Next next={true} prev={!!prev} {...next} />
+        <Previous previous={true} hasNext={!!next} {...prev} />
+        <Next next={true} hasPrev={!!prev} {...next} />
       </Grid>
     </Container>
   );

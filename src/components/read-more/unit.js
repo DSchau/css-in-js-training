@@ -44,13 +44,10 @@ const PrevIcon = styled(ChevronLeft)`
   transition: 175ms ease-in-out;
 `;
 
-const NextIcon = styled(PrevIcon)`
-  position: absolute;
+const NextIcon = styled(PrevIcon.withComponent(ChevronRight))`
+  left: auto;
   right: 0;
-  font-size: 32px;
-
-  transition: 175ms ease-in-out;
-`.withComponent(ChevronRight);
+`;
 
 export function Unit({ id, fields, frontmatter, next, previous, ...rest }) {
   if (!id) {
