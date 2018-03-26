@@ -23,7 +23,10 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
           }
         }
       }
-      units: allMarkdownRemark(filter: { fields: { type: { eq: "unit" } } }) {
+      units: allMarkdownRemark(
+        filter: { fields: { type: { eq: "unit" } } }
+        sort: { order: ASC, fields: [id] }
+      ) {
         edges {
           node {
             id

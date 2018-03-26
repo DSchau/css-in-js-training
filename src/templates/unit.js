@@ -58,10 +58,6 @@ const ContentContainer = styled.div`
 
   margin: 0 auto;
   max-width: 960px;
-  padding: 1rem;
-  ${MEDIA['medium']} {
-    padding: 2rem 1rem;
-  }
 `;
 
 const Content = styled.div`
