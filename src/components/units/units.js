@@ -42,15 +42,20 @@ const Grid = styled.div`
   `};
 `;
 
-export function Units({ list = [] }) {
+export function Units({
+  list = [],
+  grid: GridComponent = Grid,
+  showTitle = true,
+  ...rest
+}) {
   return (
-    <Container>
-      <Title>2 hours &#9679; {list.length} videos</Title>
-      <Grid>
+    <Container {...rest}>
+      {showTitle && <Title>2 hours &#9679; {list.length} videos</Title>}
+      <GridComponent>
         {list.map(({ node }, index) => (
           <Unit key={node.id} number={index + 1} {...node} />
         ))}
-      </Grid>
+      </GridComponent>
     </Container>
   );
 }
