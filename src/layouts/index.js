@@ -87,7 +87,7 @@ export default ({ children, data: { about, meta, site }, location }) => {
         <Header title="CSS in JS" subTitle="with styled-components and React" />
       )}
       <Content>{children()}</Content>
-      {isHome && <Footer />}
+      {isHome && <Footer repository={site.siteMetadata.repo} />}
     </Container>
   );
 };
@@ -104,6 +104,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         domain
+        repo
       }
     }
 

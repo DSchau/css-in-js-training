@@ -102,7 +102,7 @@ export function Unit({ fields, frontmatter, html, number }) {
     section: getColorFromString(fields.section)
   };
   return (
-    <Link to={fields.slug}>
+    <Link to={`${fields.slug}/storyboard`}>
       <Container>
         <TitleContainer backgroundColor={color.base}>
           <Title textShadow={color.darkened}>{title}</Title>

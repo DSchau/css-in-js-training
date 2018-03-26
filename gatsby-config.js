@@ -28,6 +28,7 @@ const content = fs
 module.exports = {
   siteMetadata: {
     domain: 'https://css-in-js-training.dustinschau.com',
+    repo: 'https://github.com/DSchau/css-in-js-training',
     title: 'CSS in JS with Styled Components and React'
   },
   plugins: [

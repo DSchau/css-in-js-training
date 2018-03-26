@@ -4,7 +4,7 @@ import GatsbyLink from 'gatsby-link';
 import ChevronLeft from 'react-icons/lib/md/chevron-left';
 import 'prismjs/themes/prism-tomorrow.css';
 
-import { Share, Storyboard, StoryboardTitle } from '../components';
+import { ReadMore, Share, Storyboard, StoryboardTitle } from '../components';
 import { FADE_IN_BOTTOM, MEDIA, getColorFromString } from '../style';
 
 const Container = styled.div`
@@ -98,9 +98,15 @@ const BackText = styled.span`
   left: -12px;
 `;
 
-export default function Lesson({ data, location, storyboard: isStoryboard }) {
+export default function Lesson({
+  data,
+  location,
+  storyboard: isStoryboard,
+  pathContext
+}) {
   const { site, unit } = data;
   const { title } = unit.frontmatter;
+  const { next, prev } = pathContext;
   const color = {
     base: getColorFromString(title),
     darkened: getColorFromString(title, 50, 20),
@@ -122,6 +128,7 @@ export default function Lesson({ data, location, storyboard: isStoryboard }) {
           </Fragment>
         )}
         <Content dangerouslySetInnerHTML={{ __html: unit.html }} />
+        <ReadMore prev={prev} next={next} />
         <Share
           permalink={`${site.siteMetadata.domain}/${unit.fields.slug}`}
           title={title}

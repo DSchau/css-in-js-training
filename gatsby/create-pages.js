@@ -27,8 +27,17 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
         edges {
           node {
             id
+            html
             fields {
+              section
               slug
+            }
+            frontmatter {
+              description
+              diagrams
+              examples
+              title
+              takeaways
             }
           }
         }
@@ -52,21 +61,25 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
       });
     });
 
-    units.edges.forEach(({ node }) => {
+    units.edges.forEach(({ node }, index) => {
       const { slug } = node.fields;
+      const next =
+        index + 1 === units.edges.length ? false : units.edges[index + 1].node;
+      const prev = index === 0 ? false : units.edges[index - 1].node;
+      const context = {
+        slug,
+        prev,
+        next
+      };
       createPage({
         path: `/${slug}`,
         component: unitTemplate,
-        context: {
-          slug
-        }
+        context
       });
       createPage({
         path: `/${slug}/storyboard`,
         component: unitTemplateWithStoryboard,
-        context: {
-          slug
-        }
+        context
       });
     });
   });

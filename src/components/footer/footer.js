@@ -68,7 +68,7 @@ const Break = styled.span`
   margin-top: 4px;
 `;
 
-export function Footer() {
+export function Footer({ repository }) {
   return (
     <Container>
       <Message>
@@ -83,7 +83,7 @@ export function Footer() {
           </Link>
         </Break>
       </Message>
-      <GithubLink href="https://github.com" target="_blank" rel="noopener">
+      <GithubLink href={repository} target="_blank" rel="noopener">
         <Github />
       </GithubLink>
     </Container>
