@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Unit } from './unit';
 
@@ -22,6 +22,22 @@ const Grid = styled.div`
   grid-template-columns: 50% 50%;
 `;
 
+const Previous = styled(Unit)`
+  ${props =>
+    props.next === false &&
+    css`
+      grid-column: 1;
+    `};
+`;
+
+const Next = styled(Unit)`
+  ${props =>
+    props.prev === false &&
+    css`
+      grid-column: 2;
+    `};
+`;
+
 /*
  * TODO: flesh this out
  */
@@ -31,8 +47,8 @@ export function ReadMore({ prev = {}, next = {} }) {
     <Container>
       <Title>Continue reading</Title>
       <Grid>
-        <Unit previous={true} {...prev} />
-        <Unit next={true} {...next} />
+        <Previous previous={true} next={!!next} {...prev} />
+        <Next next={true} prev={!!prev} {...next} />
       </Grid>
     </Container>
   );

@@ -52,7 +52,7 @@ const NextIcon = styled(PrevIcon)`
   transition: 175ms ease-in-out;
 `.withComponent(ChevronRight);
 
-export function Unit({ id, fields, frontmatter, next, previous }) {
+export function Unit({ id, fields, frontmatter, next, previous, ...rest }) {
   if (!id) {
     return null;
   }
@@ -62,7 +62,7 @@ export function Unit({ id, fields, frontmatter, next, previous }) {
     base: getColorFromString(title)
   };
   return (
-    <Link to={`/${fields.slug}`} backgroundColor={color.base}>
+    <Link to={`/${fields.slug}`} backgroundColor={color.base} {...rest}>
       {previous && <PrevIcon className="icon" backgroundColor="white" />}
       {title}
       {next && <NextIcon className="icon" backgroundColor="white" />}

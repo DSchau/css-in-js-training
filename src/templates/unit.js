@@ -57,12 +57,13 @@ const ContentContainer = styled.div`
     normal both;
 
   margin: 0 auto;
+  padding: 1rem 0;
   max-width: 960px;
 `;
 
 const Content = styled.div`
   max-width: 800px;
-  margin: 0 auto;
+  margin: 1rem auto;
 `;
 
 const BackIcon = styled(ChevronLeft)`
