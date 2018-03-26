@@ -13,24 +13,44 @@ const Link = styled(GatsbyLink)`
   font-family: Montserrat, sans-serif;
   font-size: 16px;
   background-color: ${props => props.backgroundColor};
+  outline: 2px solid ${props => props.backgroundColor};
+  height: 32px;
+  justify-content: center;
+  position: relative;
+  margin: 0.5rem;
+  transition: 175ms ease-in-out;
 
   :hover {
-    color: white;
+    color: ${props => props.backgroundColor};
+    background-color: white;
+    outline-width: 2px;
+    .icon {
+      background-color: ${props => props.backgroundColor};
+      color: white;
+    }
+  }
+
+  .icon {
+    color: ${props => props.backgroundColor};
+    background-color: white;
   }
 `;
 
 const PrevIcon = styled(ChevronLeft)`
+  position: absolute;
+  left: 0;
   font-size: 32px;
-  background-color: ${props => props.backgroundColor};
-  color: ${props => props.color};
 
-  :hover {
-    background-color: ${props => props.color};
-    color: ${props => props.backgroundColor};
-  }
+  transition: 175ms ease-in-out;
 `;
 
-const NextIcon = PrevIcon.withComponent(ChevronRight);
+const NextIcon = styled(PrevIcon)`
+  position: absolute;
+  right: 0;
+  font-size: 32px;
+
+  transition: 175ms ease-in-out;
+`.withComponent(ChevronRight);
 
 export function Unit({ id, fields, frontmatter, next, previous }) {
   if (!id) {
@@ -43,9 +63,9 @@ export function Unit({ id, fields, frontmatter, next, previous }) {
   };
   return (
     <Link to={`/${fields.slug}`} backgroundColor={color.base}>
-      {previous && <PrevIcon color={color.base} backgroundColor="white" />}
+      {previous && <PrevIcon className="icon" backgroundColor="white" />}
       {title}
-      {next && <NextIcon color={color.base} backgroundColor="white" />}
+      {next && <NextIcon className="icon" backgroundColor="white" />}
     </Link>
   );
 }

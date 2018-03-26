@@ -11,10 +11,7 @@ const Container = styled.div`
 
   align-items: center;
 
-  margin-top: 0.25rem;
-  padding-top: 0.25rem;
-
-  border-top: 2px solid #eee;
+  padding: 1rem 0;
 `;
 
 const ShareContainer = styled.div`
