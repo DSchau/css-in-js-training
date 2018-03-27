@@ -72,6 +72,10 @@ import logo from './logo.svg';
 
 woo hoo! We've now imported the API of styled-components and we can begin using it to implement modern CSS in JS techniques. Yes. It really is _that_ easy!
 
+### Standalone lessons
+
+As you follow along with the units, I've set up a collection of exercises that that can be completed to enforce the content presented within this course content. Check them out [here][lessons]
+
 ---
 
 #### Updating tooling
@@ -79,3 +83,5 @@ woo hoo! We've now imported the API of styled-components and we can begin using 
 <!-- this is a bonus lesson -->
 
 Oh no! You've inherited a legacy application, or modern build tooling hasn't yet been set up on this application. Do not fear! Check out _this video_ (insert video here) to check out how to update build tooling to enable importing JavaScript dependencies via NPM and module bundling.
+
+[lessons]: https://github.com/DSchau/styled-components-units
