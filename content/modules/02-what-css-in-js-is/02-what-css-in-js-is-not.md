@@ -7,8 +7,8 @@ diagrams:
 examples:
   - Button component written with inline styles
 takeaways:
-  - An understanding that CSS in JS is _not_ inline styles
-  - An understanding of why inline styles are not an ideal solution
+  - Knowing what an inline style is
+  - Knowing the drawbacks of inline styles
 ---
 
 CSS in JS is not--and I cannot stress this enough--inline styles. By its very definition, inline styles are, of course, an example of CSS in JS, but the true benefit and the real value of CSS in JS as a technique is with these newer libraries like styled-components. This raises the question... what is an inline style?

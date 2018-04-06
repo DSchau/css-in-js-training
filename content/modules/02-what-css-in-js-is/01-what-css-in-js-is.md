@@ -8,9 +8,8 @@ diagrams:
 examples:
   - Our first CSS in JS styled component
 takeaways:
-  - An understanding that separation of concerns is not seperation of technologies
-  - High level understanding of some benefits of CSS in JS
-  - High level understanding of style injection
+  - What a styled component looks like
+  - How to style a button with styled-components
 ---
 
 CSS in JS is many things, but by its very definition, it is writing styles with JavaScript. However, how does this actually work? What is it doing, and at a foundational level, what is it?
