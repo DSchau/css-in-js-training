@@ -12,7 +12,7 @@ takeaways:
   - How to style a button with styled-components
 ---
 
-CSS in JS is many things, but by its very definition, it is writing styles with JavaScript. However, how does this actually work? What is it doing, and at a foundational level, what is it?
+CSS in JS is many things, but by its very definition, it is writing styles with JavaScript. However, how does this actually work? What is it doing, and at a foundational level, what does this mean?
 
 ### What it is
 
