@@ -42,7 +42,6 @@ const Next = styled(Unit)`
  * TODO: flesh this out
  */
 export function ReadMore({ prev = {}, next = {} }) {
-  const units = [prev, next];
   return (
     <Container>
       <Title>Continue reading</Title>

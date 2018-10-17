@@ -27,10 +27,6 @@ const Title = styled.h2`
   border-right-width: 0;
 `;
 
-const Caps = styled.span`
-  text-transform: uppercase;
-`;
-
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 100%;

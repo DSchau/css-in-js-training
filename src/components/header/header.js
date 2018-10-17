@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import GatsbyLink from 'gatsby-link';
-import styled, { injectGlobal } from 'styled-components';
+import { Link as GatsbyLink } from 'gatsby';
+import styled from 'styled-components';
 
 import { MEDIA, WIGGLE_AND_SCALE } from '../../style';
 
@@ -10,6 +10,12 @@ const Container = styled.header`
   background-color: #1595a3;
 
   position: relative;
+
+  .particles-js-canvas-el {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 `;
 
 const Title = styled.h1`
@@ -37,7 +43,8 @@ const Title = styled.h1`
   `}
 `;
 
-const Subtitle = styled(Title)`
+const Subtitle = styled(Title.withComponent('span'))`
+  display: block;
   font-family: 'Bungee', cursive;
   background-color: #F2FFE3;
   color: #1595A3;
@@ -57,14 +64,14 @@ const Subtitle = styled(Title)`
   ${MEDIA.large`
     font-size: 32px;
   `}
-`.withComponent('h2');
+`;
 
 export class Header extends Component {
-  componentDidMount() {
-    require.ensure(['@dschau/particles.js', '../../particles.json'], () => {
-      const particles = require('@dschau/particles.js');
-      const particlesConfig = require('../../particles.json');
-
+  async componentDidMount() {
+    await Promise.all([
+      import('@dschau/particles.js'),
+      import('../../particles.json')
+    ]).then(([{ default: particles }, particlesConfig]) => {
       particles('header', particlesConfig);
     });
   }
@@ -97,11 +104,3 @@ export class Header extends Component {
     );
   }
 }
-
-injectGlobal`
-  .particles-js-canvas-el {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-`;

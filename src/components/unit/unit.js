@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, { injectGlobal } from 'styled-components';
-import GatsbyLink from 'gatsby-link';
+import styled from 'styled-components';
+import { Link as GatsbyLink, graphql } from 'gatsby';
 
 import { MEDIA, getColorFromString } from '../../style';
 
@@ -16,6 +16,11 @@ const Container = styled.div`
   :hover {
     transform: scale(1.025) translateY(-4px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  }
+
+  .gatsby-resp-image-link {
+    margin-left: calc(-1 * (10px + 1rem));
+    margin-right: calc(-1 * (10px + 1rem));
   }
 `;
 
@@ -131,13 +136,7 @@ export const unitFragment = graphql`
       examples
       title
       takeaways
+      video
     }
-  }
-`;
-
-injectGlobal`
-  .gatsby-resp-image-link {
-    margin-left: calc(-1 * (10px + 1rem));
-    margin-right: calc(-1 * (10px + 1rem));
   }
 `;

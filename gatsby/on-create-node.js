@@ -1,8 +1,8 @@
 const slugify = require('limax');
 const path = require('path');
 
-module.exports = function createNode({ node, boundActionCreators, getNode }) {
-  const { createNodeField } = boundActionCreators;
+module.exports = function createNode({ node, actions, getNode }) {
+  const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
     const { sourceInstanceName: type } = getNode(node.parent);
 

@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const base = path.resolve('content/modules');
+const ignore = ['**/*.mp4', '**/*.screenflow'];
 
 const content = fs
   .readdirSync(base)
@@ -12,7 +13,8 @@ const content = fs
     resolve: 'gatsby-source-filesystem',
     options: {
       name: 'modules',
-      path: path.join(base, lesson)
+      path: path.join(base, lesson),
+      ignore
     }
   }))
   .concat([
@@ -20,7 +22,8 @@ const content = fs
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `content`,
-        path: `${__dirname}/content`
+        path: `${__dirname}/content`,
+        ignore
       }
     }
   ]);
@@ -32,11 +35,11 @@ module.exports = {
     title: 'CSS in JS with Styled Components and React'
   },
   plugins: [
-    'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-layout',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
