@@ -1,11 +1,41 @@
 import React, { Fragment } from 'react';
-import styled, { injectGlobal } from 'styled-components';
-import GatsbyLink from 'gatsby-link';
+import styled, { css } from 'styled-components';
+import { graphql, Link as GatsbyLink, withPrefix } from 'gatsby';
+import Player from 'react-player';
 import ChevronLeft from 'react-icons/lib/md/chevron-left';
 import 'prismjs/themes/prism-tomorrow.css';
 
 import { ReadMore, Share, Storyboard, StoryboardTitle } from '../components';
 import { FADE_IN_BOTTOM, MEDIA, getColorFromString } from '../style';
+
+const gatsbyCodeStyle = css`
+  .gatsby-highlight-code-line {
+    background-color: #feb;
+    display: block;
+    margin-right: -1em;
+    margin-left: -1em;
+    padding-right: 1em;
+    padding-left: 0.75em;
+    border-left: 0.25em solid #f99;
+  }
+
+  .gatsby-highlight {
+    background-color: #2d2d2d;
+    border-radius: 0.3em;
+    margin: 0.5em 0;
+    padding: 1em;
+    overflow: auto;
+  }
+
+  .gatsby-highlight pre[class*='language-'] {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    overflow: initial;
+    float: left; /* 1 */
+    min-width: 100%; /* 2 */
+  }
+`;
 
 const Container = styled.div`
   transform: translateY(50vh) scale(0.5);
@@ -13,6 +43,8 @@ const Container = styled.div`
 
   opacity: 0;
   animation: ${FADE_IN_BOTTOM} 300ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+  ${gatsbyCodeStyle};
 `;
 
 const TitleContainer = styled.div`
@@ -95,6 +127,10 @@ const BackText = styled.span`
   left: -12px;
 `;
 
+const Video = styled(Player)`
+  margin: 0 auto;
+`;
+
 export default function Lesson({
   data,
   location,
@@ -102,7 +138,7 @@ export default function Lesson({
   pathContext
 }) {
   const { site, unit } = data;
-  const { title } = unit.frontmatter;
+  const { title, video } = unit.frontmatter;
   const { next, prev } = pathContext;
   const color = {
     base: getColorFromString(title),
@@ -124,6 +160,7 @@ export default function Lesson({
             <StoryboardTitle>Content</StoryboardTitle>
           </Fragment>
         )}
+        {video && <Video url={withPrefix(video)} controls />}
         <Content dangerouslySetInnerHTML={{ __html: unit.html }} />
         <ReadMore prev={prev} next={next} />
         <Share
@@ -146,34 +183,5 @@ export const pageQuery = graphql`
         domain
       }
     }
-  }
-`;
-
-injectGlobal`
-  .gatsby-highlight-code-line {
-    background-color: #feb;
-    display: block;
-    margin-right: -1em;
-    margin-left: -1em;
-    padding-right: 1em;
-    padding-left: 0.75em;
-    border-left: 0.25em solid #f99;
-  }
-
-  .gatsby-highlight {
-    background-color: #2d2d2d;
-    border-radius: 0.3em;
-    margin: 0.5em 0;
-    padding: 1em;
-    overflow: auto;
-  }
-
-  .gatsby-highlight pre[class*="language-"] {
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    overflow: initial;
-    float: left; /* 1 */
-    min-width: 100%; /* 2 */
   }
 `;

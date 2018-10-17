@@ -1,7 +1,7 @@
 const path = require('path');
 
-module.exports = function createPages({ boundActionCreators, graphql }) {
-  const { createPage } = boundActionCreators;
+module.exports = function createPages({ actions, graphql }) {
+  const { createPage } = actions;
 
   const contentTemplate = path.resolve('src/templates/content.js');
   const unitTemplate = path.resolve('src/templates/unit.js');
@@ -67,8 +67,8 @@ module.exports = function createPages({ boundActionCreators, graphql }) {
     units.edges.forEach(({ node }, index) => {
       const { slug } = node.fields;
       const next =
-        index + 1 === units.edges.length ? false : units.edges[index + 1].node;
-      const prev = index === 0 ? false : units.edges[index - 1].node;
+        index + 1 === units.edges.length ? null : units.edges[index + 1].node;
+      const prev = index === 0 ? null : units.edges[index - 1].node;
       const context = {
         slug,
         prev,

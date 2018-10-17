@@ -24,9 +24,12 @@ const Container = styled.div`
       > .description {
         color: white;
       }
-    `} .gatsby-image-outer-wrapper {
-    text-align: center;
-  }
+    `};
+`;
+
+const Centered = styled.div`
+  text-align: center;
+  margin: 1rem 0;
 `;
 
 const Title = styled.h1`
@@ -77,7 +80,9 @@ export function About({ image, html, title, inverted, ...rest }) {
   return (
     <Container inverted={inverted} {...rest}>
       <Title className="title">{title}</Title>
-      {image && <Image resolutions={image.childImageSharp.resolutions} />}
+      <Centered>
+        {image && <Image resolutions={image.childImageSharp.resolutions} />}
+      </Centered>
       <Description
         className="description"
         dangerouslySetInnerHTML={{ __html: html }}

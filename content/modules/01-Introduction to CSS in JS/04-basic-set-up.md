@@ -1,7 +1,7 @@
 ---
 title: Set up
 description: "Getting started with CSS in JS techniques could not be easier, but there's still some necessary set up and explanation. Let's dive in!"
-video: https://manning.com
+video: /video/Unit1-Introduction_to_CSS_in_JS/U1-M4-Set_up.mp4
 diagrams:
   - Illustration of the flow of integration styled-components into an application
 takeaways:

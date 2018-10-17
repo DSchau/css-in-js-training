@@ -1,7 +1,7 @@
 ---
 title: Introduction to CSS and JS
 description: "CSS in JS seems to be an increasingly utilized and interesting technique seen on sites by Twitter, Microsoft, and others. In this section, we'll introduce this series of CSS in JS lessons."
-video: https://manning.com
+video: /video/Unit1-Introduction_to_CSS_in_JS/U1-M1-Introduction_to_CSS_and_JS.mp4
 takeaways:
   - An understanding of what the course will be about
   - A high-level idea of some problems of CSS that CSS in JS attempts to solve

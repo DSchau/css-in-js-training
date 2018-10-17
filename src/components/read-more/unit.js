@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import GatsbyLink from 'gatsby-link';
+import { Link as GatsbyLink } from 'gatsby';
 import ChevronLeft from 'react-icons/lib/md/chevron-left';
 import ChevronRight from 'react-icons/lib/md/chevron-right';
 
@@ -54,7 +54,7 @@ export function Unit({ id, fields, frontmatter, next, previous, ...rest }) {
     return null;
   }
 
-  const { description, title } = frontmatter;
+  const { title } = frontmatter;
   const color = {
     base: getColorFromString(title)
   };

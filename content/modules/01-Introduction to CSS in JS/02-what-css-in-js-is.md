@@ -1,7 +1,7 @@
 ---
 title: What CSS in JS Is
 description: "When the term \"CSS in JS\" is used, what does that really mean? In this section, we'll define the term, and give some examples of common libraries and techniques of CSS in JS."
-video: https://manning.com
+video: /video/Unit1-Introduction_to_CSS_in_JS/U1-M2-What_CSS_in_JS_Is.mp4
 diagrams:
   - Seperation of concerns not technologies
   - Illustration of how CSS in JS injects styles
