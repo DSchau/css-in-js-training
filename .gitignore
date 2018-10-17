@@ -6,3 +6,8 @@ node_modules
 public/
 .DS_Store
 yarn-error.log
+
+# video files
+*.mp4
+*.screenflow
+
