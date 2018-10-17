@@ -40,6 +40,7 @@ module.exports = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-plugin-layout',
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-typography',
       options: {

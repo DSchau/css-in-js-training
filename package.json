@@ -5,10 +5,10 @@
   "author": "Dustin Schau <dustinschau@gmail.com> (https://dustinschau.com)",
   "dependencies": {
     "@dschau/particles.js": "~2.0.0",
-    "es6-promise": "~4.2.5",
     "gatsby": "~2.0.25",
     "gatsby-image": "~2.0.15",
     "gatsby-plugin-layout": "~1.0.3",
+    "gatsby-plugin-offline": "~2.0.7",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-remove-trailing-slashes": "~2.0.3",
     "gatsby-plugin-sharp": "~2.0.7",

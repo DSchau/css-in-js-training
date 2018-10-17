@@ -1,11 +1,19 @@
 import Typography from 'typography';
 import grandViewTheme from 'typography-theme-grand-view';
 
-grandViewTheme.googleFonts = grandViewTheme.googleFonts.concat({
-  name: 'Bungee',
-  styles: ['400']
-});
+grandViewTheme.googleFonts = [
+  {
+    name: 'Montserrat',
+    styles: ['700']
+  },
+  {
+    name: 'Arvo',
+    styles: ['400', '700']
+  },
+  {
+    name: 'Bungee',
+    styles: ['400']
+  }
+];
 
-const typography = new Typography(grandViewTheme);
-
-export default typography;
+export default new Typography(grandViewTheme);

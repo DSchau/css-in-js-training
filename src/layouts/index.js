@@ -2,7 +2,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import { graphql, StaticQuery } from 'gatsby';
-import 'es6-promise/auto';
 
 import { Footer, Header } from '../components';
 
@@ -112,7 +111,9 @@ export default ({ children, location }) => {
                 content: 'index,follow'
               }
             ]}
-          />
+          >
+            <html lang="en" />
+          </Helmet>
           {isHome && (
             <Header
               title="CSS in JS"

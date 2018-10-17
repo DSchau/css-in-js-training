@@ -83,7 +83,12 @@ export function Footer({ repository }) {
           </Link>
         </Break>
       </Message>
-      <GithubLink href={repository} target="_blank" rel="noopener">
+      <GithubLink
+        href={repository}
+        name="github-link"
+        target="_blank"
+        rel="noopener"
+      >
         <Github />
       </GithubLink>
     </Container>

@@ -135,11 +135,11 @@ export default function Lesson({
   data,
   location,
   storyboard: isStoryboard,
-  pathContext
+  pageContext
 }) {
   const { site, unit } = data;
   const { title, video } = unit.frontmatter;
-  const { next, prev } = pathContext;
+  const { next, prev } = pageContext;
   const color = {
     base: getColorFromString(title),
     darkened: getColorFromString(title, 50, 20),
